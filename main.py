@@ -1,5 +1,12 @@
 import dearpygui.dearpygui as dpg
 
+from Utils.Store import store
+from Utils.Parser import parse,apply
+
+# print(parse("./sample.json"))
+parse("./sample.json")
+print(store["variables"]["BaseGameSupport.CollectionItem_WineBottle_Date"])
+apply()
 
 dpg.create_context()
 dpg.create_viewport(title='Suzerain Save Editor',width=1200,height=800)

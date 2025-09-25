@@ -1,0 +1,1 @@
+Start-Process pwsh -ArgumentList '-NoExit','-NoLogo','-Command',"& { & '.\venv\Scripts\Activate.ps1' }"
