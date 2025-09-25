@@ -1,5 +1,6 @@
 venv
 .vscode
 sample.json
+sample1.json
 __pycache__
 *.py[cod]
