@@ -42,3 +42,11 @@ FIELD_MAP_RIZIA={
     "resourcesAuthority":"RiziaDLC.Resources_Authority",
     "resourcesEnergy":"RiziaDLC.Resources_Energy"
 }
+
+GROUP_RIZIA={
+    "Money":[
+        "resourcesBudget",
+        "resourcesAuthority",
+        "resourcesEnergy"
+    ]
+}

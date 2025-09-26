@@ -11,6 +11,7 @@ def parse(file):
     with open(file,"r",encoding="utf-8") as f:
         data=json.load(f)
     metadata=Metadata(data["campaignName"],data["currentStoryPack"],data["turnNo"])
+    store.metadata=metadata
 
     variables={}
     for k,v in re.findall(r'\["([^"]+)"\]=("(?:(?:\\.|[^"\\])*)"|[^,}]+)',data["variables"]):
@@ -26,17 +27,19 @@ def parse(file):
         else:
             v=v.replace("\"","")
         variables[k]=v
-    store["variables"]=variables.copy()
+    store.variables=variables.copy()
 
     sordland=Sordland(**{field:variables[key] for field,key in FIELD_MAP_SORDLAND.items()})
     rizia=Rizia(**{field:variables[key] for field,key in FIELD_MAP_RIZIA.items()})
+    store.sordland=sordland
+    store.rizia=rizia
 
     return (metadata,sordland,rizia)
 
 def apply(file):
     s="Variable={"
 
-    for k,v in store["variables"].items():
+    for k,v in store.variables.items():
         s+="[\""+k+"\"]="
         match v:
             case bool():

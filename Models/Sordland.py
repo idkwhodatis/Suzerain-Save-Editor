@@ -14,7 +14,7 @@ class Sordland:
     monicaOpinion:int
     francOpinion:int
     deanaLoved:bool
-    deanaOpinion:int
+    deanaOpinion:bool
     ewaldDiscontent:bool
     ewaldNeutral:bool
     ewaldFriendly:bool
@@ -30,6 +30,8 @@ class Sordland:
     @ewaldOpinion.setter
     def ewaldOpinion(self,opinion):
         self.ewaldDiscontent=self.ewaldNeutral=self.ewaldFriendly=False
+        if type(opinion)==str:
+            opinion=EwaldOpinion(opinion)
         match opinion:
             case EwaldOpinion.DISCONTENT:
                 self.ewaldDiscontent=True
