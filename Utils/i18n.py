@@ -1,7 +1,7 @@
 from Utils.Store import store
 
 def i18n(key):
-    return I18N[store.locale][key]
+    return I18N.get(store.locale,{}).get(key,"")
 
 
 I18N={

@@ -50,3 +50,14 @@ GROUP_RIZIA={
         "resourcesEnergy"
     ]
 }
+
+STORY_PACK={
+    "sordland":{
+        "field_map":FIELD_MAP_SORDLAND,
+        "group":GROUP_SORDLAND
+    },
+    "rizia":{
+        "field_map":FIELD_MAP_RIZIA,
+        "group":GROUP_RIZIA
+    }
+}

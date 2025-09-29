@@ -2,7 +2,7 @@ import json
 import re
 
 from Utils.Store import store
-from Utils.Consts import FIELD_MAP_SORDLAND,FIELD_MAP_RIZIA
+from Utils.Consts import STORY_PACK,FIELD_MAP_SORDLAND,FIELD_MAP_RIZIA
 from Models.Metadata import Metadata
 from Models.Sordland import Sordland
 from Models.Rizia import Rizia
@@ -37,6 +37,11 @@ def parse(file):
     return (metadata,sordland,rizia)
 
 def apply(file):
+    for storyPack in STORY_PACK:
+        for field,key in STORY_PACK[storyPack]["field_map"].items():
+            store.variables[key]=getattr(getattr(store,storyPack),field)
+            print(storyPack,field,key)
+
     s="Variable={"
 
     for k,v in store.variables.items():
@@ -60,4 +65,5 @@ def apply(file):
     with open(file,"w",encoding="utf-8") as f:
         json.dump(data,f,indent=4,ensure_ascii=False)
 
+    print("done")
     return s
