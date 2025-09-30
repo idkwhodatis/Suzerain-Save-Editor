@@ -10,6 +10,19 @@ I18N={
         "简体中文":"zh"
     },
     "en":{
+        "File":"File",
+        "Settings":"Settings",
+        "About":"About",
+        "Open":"Open",
+        "Open Folder":"Open Folder",
+        "Save":"Save",
+        "Auto Backup":"Auto Backup",
+        "Language":"Language",
+        "About":"About",
+
+        "Back":"Back",
+        "Cancel":"Cancel",
+
         "Money":"Money",
         "Economy":"Economy",
         "Opinion":"Opinion",
@@ -27,12 +40,24 @@ I18N={
         "deanaOpinion":"Deana Opinion",
         "ewaldOpinion":"Ewald Opinion",
 
-
         "resourcesBudget":"Government Budget",
         "resourcesAuthority":"Government Authority",
         "resourcesEnergy":"Government Energy"
     },
     "zh":{
+        "File":"文件",
+        "Settings":"设置",
+        "About":"关于",
+        "Open":"打开",
+        "Open Folder":"打开文件夹",
+        "Save":"保存",
+        "Auto Backup":"自动备份",
+        "Language":"语言",
+        "About":"关于",
+        
+        "Back":"返回",
+        "Cancel":"取消",
+
         "Money":"财政",
         "Economy":"经济",
         "Opinion":"民意/好感",
@@ -41,14 +66,14 @@ I18N={
         "personalWealth":"私人财富",
         "economy":"经济",
         "publicOpinion":"民意",
-        "bludishOpinion":"布尔德民意",
+        "bludishOpinion":"Bludish民意",
         "countryUnrest":"国家动乱",
-        "lucianOpinion":"卢锡安好感",
-        "monicaOpinion":"莫妮卡好感",
-        "francOpinion":"弗兰克好感",
-        "deanaLoved":"迪安娜喜爱",
-        "deanaOpinion":"迪安娜好感",
-        "ewaldOpinion":"埃瓦尔德好感",
+        "lucianOpinion":"Lucian好感",
+        "monicaOpinion":"Monica好感",
+        "francOpinion":"Franc好感",
+        "deanaLoved":"Deana喜爱",
+        "deanaOpinion":"Deana好感",
+        "ewaldOpinion":"Ewald好感",
 
 
         "resourcesBudget":"政府预算",
