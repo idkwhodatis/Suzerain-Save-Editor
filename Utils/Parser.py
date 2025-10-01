@@ -3,6 +3,7 @@ import re
 
 from Utils.Store import store
 from Utils.Consts import STORY_PACK,FIELD_MAP_SORDLAND,FIELD_MAP_RIZIA
+from Utils.Utils import atomicWrite
 from Models.Metadata import Metadata
 from Models.Sordland import Sordland
 from Models.Rizia import Rizia
@@ -62,8 +63,9 @@ def apply(file):
     with open(file,"r",encoding="utf-8") as f:
         data=json.load(f)
     data["variables"]=s
-    with open(file,"w",encoding="utf-8") as f:
-        json.dump(data,f,indent=4,ensure_ascii=False)
+    atomicWrite(file,data)
+    # with open(file,"w",encoding="utf-8") as f:
+    #     json.dump(data,f,indent=4,ensure_ascii=False)
 
     print("done")
     return s

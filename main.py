@@ -1,6 +1,6 @@
 import dearpygui.dearpygui as dpg
 
-# from Utils.Init import adjustWindowByMenuBar
+from Utils.Init import init
 from Windows.SelectWindow import selectWindow
 from Windows.EditWindow import editWindow
 from Utils.Store import store
@@ -8,7 +8,7 @@ from Utils.Parser import parse,apply
 from Utils.i18n import i18n,I18N
 
 print(parse("./sample.json")[1].ewaldOpinion)
-# apply("./sample.json")
+apply("./sample.json")
 
 def updateLocale(sender,app_data,user_data):
     store.locale=user_data[0]
@@ -25,6 +25,7 @@ def updateLocale(sender,app_data,user_data):
 
 width,height=700,800
 
+init()
 dpg.create_context()
 
 with dpg.font_registry():
@@ -82,7 +83,7 @@ with dpg.viewport_menu_bar():
         dpg.add_menu_item(label=i18n("Open Folder"),user_data="Open Folder")
         dpg.add_menu_item(tag="save",label=i18n("Save"),user_data="Save",enabled=False)
     with dpg.menu(label=i18n("Settings"),user_data="Settings"):
-        dpg.add_checkbox(label=i18n("Auto Backup"),user_data="Auto Backup")
+        dpg.add_checkbox(label=i18n("Auto Backup"),user_data="Auto Backup",callback=lambda sender,app_data,user_data:setattr(store,"autoBackup",app_data))
         with dpg.menu(label=i18n("Language"),user_data="Language"):
             for i in I18N["locales"]:
                 locale=I18N["locales"][i]
@@ -91,8 +92,8 @@ with dpg.viewport_menu_bar():
                 dpg.bind_item_font(lang,font)
     dpg.add_menu_item(label=i18n("About"),user_data="About")
 
-editWindow(width,height)
-# selectWindow(width,height)
+# editWindow(width,height)
+selectWindow(width,height)
 
 dpg.setup_dearpygui()
 
@@ -100,8 +101,8 @@ dpg.setup_dearpygui()
 # dpg.show_style_editor()
 
 dpg.show_viewport()
-dpg.set_primary_window("Edit",True)
-# dpg.set_primary_window("Select",True)
+# dpg.set_primary_window("Edit",True)
+dpg.set_primary_window("Select",True)
 dpg.start_dearpygui()
 
 dpg.destroy_context()

@@ -1,1 +1,2 @@
 dearpygui==2.1.0
+platformdirs==4.4.0

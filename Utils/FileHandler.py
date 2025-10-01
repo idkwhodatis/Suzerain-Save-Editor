@@ -1,4 +1,3 @@
-import os
 import platform
 from pathlib import Path
 import pathlib
@@ -8,7 +7,7 @@ def getDir():
     home=Path.home()
 
     if system=="Windows":
-        path=Path(os.environ.get("USERPROFILE",home))/"AppData"/"LocalLow"/"Torpor Games"/"Suzerain"
+        path=home/"AppData"/"LocalLow"/"Torpor Games"/"Suzerain"
         return str(path) if path.is_dir() else ""
     elif system=="Darwin":
         path=home/"Library"/"Application Support"/"Torpor Games"/"Suzerain"
