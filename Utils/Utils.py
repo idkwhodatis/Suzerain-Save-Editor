@@ -2,6 +2,7 @@ import json
 import os
 from pathlib import Path
 
+
 def atomicWrite(file,data):
     if type(file)==str:
         file=Path(file)
@@ -11,3 +12,6 @@ def atomicWrite(file,data):
         f.flush()
         os.fsync(f.fileno())
     os.replace(temp,file)
+
+def debounce(func):
+    func()

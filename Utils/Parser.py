@@ -8,6 +8,7 @@ from Models.Metadata import Metadata
 from Models.Sordland import Sordland
 from Models.Rizia import Rizia
 
+
 def parse(file):
     with open(file,"r",encoding="utf-8") as f:
         data=json.load(f)
@@ -41,7 +42,6 @@ def apply(file):
     for storyPack in STORY_PACK:
         for field,key in STORY_PACK[storyPack]["field_map"].items():
             store.variables[key]=getattr(getattr(store,storyPack),field)
-            print(storyPack,field,key)
 
     s="Variable={"
 
@@ -67,5 +67,4 @@ def apply(file):
     # with open(file,"w",encoding="utf-8") as f:
     #     json.dump(data,f,indent=4,ensure_ascii=False)
 
-    print("done")
     return s

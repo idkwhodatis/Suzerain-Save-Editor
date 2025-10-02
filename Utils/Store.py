@@ -5,8 +5,9 @@ from platformdirs import user_data_dir
 
 from Utils.Utils import atomicWrite
 
+
 class PersisStore():
-    persistFields=["locale","autoBackup"]
+    persistFields=["locale","autoBackup","saveDir"]
 
     @staticmethod
     def exists():
@@ -38,8 +39,13 @@ class Store:
 
         self.locale="en"
         self.autoBackup=False
+        self.saveDir=""
 
         self.tab="sordland"
+        self.tabSelect="Save Files"
+
+        self.saveFiles=[]
+        self.backupFiles=[]
 
         self.variables={}
         self.metadata=None

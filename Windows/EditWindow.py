@@ -6,20 +6,21 @@ from Utils.Store import store
 from Utils.Consts import STORY_PACK
 from Utils.i18n import i18n
 
+
 footerOffset=140
 
-def input_callback(sender,app_data,user_data):
+def inputCallback(sender,app_data,user_data):
     setattr(getattr(store,user_data),sender,app_data)
 
-def tab_callback(sender,app_data,user_data):
+def tabCallback(sender,app_data,user_data):
     store.tab=dpg.get_item_label(app_data).lower()
     for sp in STORY_PACK:
         dpg.configure_item("fields"+sp,show=(store.tab==sp))
 
-def resize_callback(sender,app_data):
+def resizeCallback(sender,app_data):
     dpg.configure_item("body",height=dpg.get_viewport_height()-footerOffset)
 
-def editWindow(width,height):
+def editWindow(width,height,footerOffset):
     dpg.configure_item("save",enabled=True)
 
     with dpg.window(tag="Edit",no_scrollbar=True,no_scroll_with_mouse=True):
@@ -29,7 +30,7 @@ def editWindow(width,height):
         with dpg.group(tag="header",horizontal=True):
             dpg.add_button(label=i18n("Back"),user_data="Back")
             dpg.add_spacer(width=1)
-            with dpg.tab_bar(tag="tab",callback=tab_callback):
+            with dpg.tab_bar(tag="tab",callback=tabCallback):
                 for sp in STORY_PACK:
                     with dpg.tab(label=sp.capitalize(),tag=sp):
                         pass
@@ -40,7 +41,7 @@ def editWindow(width,height):
                     for k,v in STORY_PACK[sp]["group"].items():
                         with dpg.collapsing_header(label=i18n(k),user_data=k,default_open=True):
                             for i in v:
-                                kwargs=dict(tag=i,user_data=sp,callback=input_callback)
+                                kwargs=dict(tag=i,user_data=sp,callback=inputCallback)
                                 curr=getattr(getattr(store,sp),i)
                                 if type(curr)==int:
                                     with dpg.group(horizontal=True):
@@ -67,7 +68,7 @@ def editWindow(width,height):
             dpg.add_spacer(width=1)
             dpg.add_button(label=i18n("Cancel"),user_data="Save",callback=lambda:(print(dpg.get_viewport_height(),print(dpg.get_item_rect_size("Edit")))))
 
-    with dpg.item_handler_registry(tag="resize handler") as handler:
-        dpg.add_item_resize_handler(callback=resize_callback)
+    with dpg.item_handler_registry(tag="resizeHandler") as handler:
+        dpg.add_item_resize_handler(callback=resizeCallback)
 
-    dpg.bind_item_handler_registry("Edit","resize handler")
+    dpg.bind_item_handler_registry("Edit","resizeHandler")

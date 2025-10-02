@@ -1,5 +1,6 @@
 from Utils.Store import store
 
+
 def i18n(key):
     return I18N.get(store.locale,{}).get(key,"")
 
@@ -13,7 +14,6 @@ I18N={
         "File":"File",
         "Settings":"Settings",
         "About":"About",
-        "Open":"Open",
         "Open Folder":"Open Folder",
         "Save":"Save",
         "Auto Backup":"Auto Backup",
@@ -22,6 +22,13 @@ I18N={
 
         "Back":"Back",
         "Cancel":"Cancel",
+        "Confirm":"Confirm",
+        "SaveDir":"Choose Save File Directory",
+        "Save Files":"Save Files",
+        "Backup Files":"Backup Files",
+        "Backup":"Backup",
+        "Max Money":"Max Money",
+        "Restore":"Restore",
 
         "Money":"Money",
         "Economy":"Economy",
@@ -48,7 +55,6 @@ I18N={
         "File":"文件",
         "Settings":"设置",
         "About":"关于",
-        "Open":"打开",
         "Open Folder":"打开文件夹",
         "Save":"保存",
         "Auto Backup":"自动备份",
@@ -57,6 +63,13 @@ I18N={
         
         "Back":"返回",
         "Cancel":"取消",
+        "Confirm":"确认",
+        "SaveDir":"选择存档目录",
+        "Save Files":"存档文件",
+        "Backup Files":"备份文件",
+        "Backup":"备份",
+        "Max Money":"最大金钱",
+        "Restore":"恢复",
 
         "Money":"财政",
         "Economy":"经济",
