@@ -2,6 +2,8 @@ import platform
 from pathlib import Path
 
 from Utils.Store import store
+from Utils.Parser import apply
+from Utils.Utils import debounce
 
 
 def getDir():
@@ -37,3 +39,7 @@ def getFiles(dir):
                 backups[path.name]=str(path)
                 break
     store.backupFiles=backups
+
+@debounce(0.3)
+def save():
+    apply(Path(store.saveDir)/store.currFile)

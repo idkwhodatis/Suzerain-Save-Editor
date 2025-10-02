@@ -3,12 +3,13 @@ import re
 
 from Utils.Store import store
 from Utils.Consts import STORY_PACK,FIELD_MAP_SORDLAND,FIELD_MAP_RIZIA
-from Utils.Utils import atomicWrite
+from Utils.Utils import atomicWrite,debounce
 from Models.Metadata import Metadata
 from Models.Sordland import Sordland
 from Models.Rizia import Rizia
 
 
+@debounce(0.3)
 def parse(file):
     with open(file,"r",encoding="utf-8") as f:
         data=json.load(f)
@@ -38,6 +39,7 @@ def parse(file):
 
     return (metadata,sordland,rizia)
 
+@debounce(0.3)
 def apply(file):
     for storyPack in STORY_PACK:
         for field,key in STORY_PACK[storyPack]["field_map"].items():
@@ -64,7 +66,16 @@ def apply(file):
         data=json.load(f)
     data["variables"]=s
     atomicWrite(file,data)
-    # with open(file,"w",encoding="utf-8") as f:
-    #     json.dump(data,f,indent=4,ensure_ascii=False)
 
     return s
+
+@debounce(0.3)
+def maxMoney(file):
+    parse(file)
+    store.sordland.governmentBudget=store.variables.get("BaseGame.Sordland_HUDStat_GovernmentBudget_Max",99)
+    store.sordland.personalWealth=store.variables.get("BaseGame.Sordland_HUDStat_PersonalWealth_Max",99)
+    store.rizia.resourcesBudget=store.variables.get("RiziaDLC.Rizia_HUDStat_Budget_Max",99)
+    store.rizia.resourcesAuthority=store.variables.get("RiziaDLC.Rizia_HUDStat_Authority_Max",99)
+    store.rizia.resourcesEnergy=store.variables.get("RiziaDLC.Rizia_HUDStat_Energy_Max",99)
+    apply(file)
+    store.clear()

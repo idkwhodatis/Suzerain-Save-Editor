@@ -47,6 +47,7 @@ class Store:
         self.saveFiles=[]
         self.backupFiles=[]
 
+        self.currFile=""
         self.variables={}
         self.metadata=None
         self.sordland=None
@@ -58,5 +59,12 @@ class Store:
         super().__setattr__(name,value)
         if not self._noPersist and name in PersisStore.persistFields:
             PersisStore.set(self)
+
+    def clear(self):
+        self.currFile=""
+        self.variables.clear()
+        self.metadata=None
+        self.sordland=None
+        self.rizia=None
 
 store=Store()

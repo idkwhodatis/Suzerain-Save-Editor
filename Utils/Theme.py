@@ -49,8 +49,9 @@ def theme():
     dpg.bind_theme(theme)
 
     with dpg.font_registry():
-        with dpg.font("./Fonts/FontAwesome-Regular.otf",18) as fontICON:
-            dpg.add_font_chars([0xF07C])
+        with dpg.font("./Fonts/MaterialSymbolsOutlined-Regular.ttf",18) as fontICON:
+            dpg.add_font_chars([0xE2C8])
+            dpg.add_font_chars([0xE5C4])
         fontEN=dpg.add_font("./Fonts/NotoSans-Regular.ttf",18)
         with dpg.font("./Fonts/NotoSansSC-Regular.ttf",18) as fontZH:
             dpg.add_font_range_hint(dpg.mvFontRangeHint_Chinese_Full)

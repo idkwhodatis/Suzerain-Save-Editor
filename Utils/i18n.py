@@ -20,8 +20,6 @@ I18N={
         "Language":"Language",
         "About":"About",
 
-        "Back":"Back",
-        "Cancel":"Cancel",
         "Confirm":"Confirm",
         "SaveDir":"Choose Save File Directory",
         "Save Files":"Save Files",
@@ -29,6 +27,13 @@ I18N={
         "Backup":"Backup",
         "Max Money":"Max Money",
         "Restore":"Restore",
+        "Delete":"Delete",
+        "Close":"Close",
+
+        "Backed Up":"Backed Up",
+        "Restored":"Restored",
+        "Deleted":"Deleted",
+        "Max Moneyed":"Money Maximized",
 
         "Money":"Money",
         "Economy":"Economy",
@@ -60,9 +65,7 @@ I18N={
         "Auto Backup":"自动备份",
         "Language":"语言",
         "About":"关于",
-        
-        "Back":"返回",
-        "Cancel":"取消",
+
         "Confirm":"确认",
         "SaveDir":"选择存档目录",
         "Save Files":"存档文件",
@@ -70,6 +73,13 @@ I18N={
         "Backup":"备份",
         "Max Money":"最大金钱",
         "Restore":"恢复",
+        "Delete":"删除",
+        "Close":"关闭",
+
+        "Backed Up":"已备份",
+        "Restored":"已恢复",
+        "Deleted":"已删除",
+        "Max Moneyed":"已最大金钱",
 
         "Money":"财政",
         "Economy":"经济",
