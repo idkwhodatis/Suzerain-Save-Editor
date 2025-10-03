@@ -61,3 +61,8 @@ STORY_PACK={
         "group":GROUP_RIZIA
     }
 }
+
+ABOUT={
+    "Author":"idkwhodatis",
+    "License":"MIT"
+}

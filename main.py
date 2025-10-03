@@ -6,6 +6,7 @@ from Utils.Store import store
 from Utils.Theme import theme,fonts
 from Utils.FileHandler import save
 from Utils.i18n import i18n,I18N
+from Utils.Consts import ABOUT
 
 
 def updateLocale(sender,app_data,user_data):
@@ -21,6 +22,8 @@ def updateLocale(sender,app_data,user_data):
         if tag not in I18N["locales"].values() and not tag.startswith("icon"):
             dpg.bind_item_font(item,user_data[1])
 
+def popupCallback():
+    dpg.configure_item("popupAbout",show=True)
 
 width,height,footerOffset=700,800,140
 
@@ -31,7 +34,7 @@ theme()
 
 dpg.create_viewport(title='Suzerain Save Editor',width=width,height=height)
 dpg.set_viewport_vsync(True)
-
+#  TODO add popup for about
 with dpg.viewport_menu_bar():
     with dpg.menu(label=i18n("File"),user_data="File"):
         dpg.add_menu_item(label=i18n("Open Folder"),user_data="Open Folder")
@@ -44,7 +47,17 @@ with dpg.viewport_menu_bar():
                 font=fonts["font"+locale.upper()]
                 lang=dpg.add_menu_item(tag=locale,label=i,callback=updateLocale,user_data=(locale,font))
                 dpg.bind_item_font(lang,font)
-    dpg.add_menu_item(label=i18n("About"),user_data="About")
+    dpg.add_menu_item(label=i18n("About"),user_data="About",callback=popupCallback)
+
+with dpg.window(show=False):
+    dpg.add_button(tag="dummyAbout",show=False)
+    with dpg.popup("dummyAbout",modal=True,tag="popupAbout"):
+            for k,v in ABOUT.items():
+                with dpg.group(horizontal=True):
+                    dpg.add_text(i18n(k),user_data=k,tag=k)
+                    dpg.add_text(v)
+            dpg.add_button(label=i18n("Close"),user_data="Close",callback=lambda:dpg.configure_item("popupAbout",show=False))
+
 
 selectWindow(width,height)
 

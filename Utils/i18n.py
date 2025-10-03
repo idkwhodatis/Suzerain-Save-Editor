@@ -18,7 +18,8 @@ I18N={
         "Save":"Save",
         "Auto Backup":"Auto Backup",
         "Language":"Language",
-        "About":"About",
+        "Author":"Author: ",
+        "License":"License: ",
 
         "Confirm":"Confirm",
         "SaveDir":"Choose Save File Directory",
@@ -64,7 +65,8 @@ I18N={
         "Save":"保存",
         "Auto Backup":"自动备份",
         "Language":"语言",
-        "About":"关于",
+        "Author":"作者: ",
+        "License":"开源证书: ",
 
         "Confirm":"确认",
         "SaveDir":"选择存档目录",
