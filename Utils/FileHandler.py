@@ -2,7 +2,6 @@ import platform
 from pathlib import Path
 
 from Utils.Store import store
-from Utils.Parser import apply
 from Utils.Utils import debounce
 
 
@@ -19,6 +18,7 @@ def getDir():
         path=home/".steam"/"steam"/"steamapps"/"compatdata"/"1207650"/"pfx"/"drive_c"/"users"/"steamuser"/"AppData"/"LocalLow"/"Torpor Games"/"Suzerain"
     store.saveDir=str(path) if path.is_dir() else ""
 
+@debounce(0.3)
 def getFiles(dir):
     prefixes=("Active","Auto","Turn","Final")
     prefixPriority={p:i for i,p in enumerate(prefixes)}
@@ -39,7 +39,3 @@ def getFiles(dir):
                 backups[path.name]=str(path)
                 break
     store.backupFiles=backups
-
-@debounce(0.3)
-def save():
-    apply(Path(store.saveDir)/store.currFile)

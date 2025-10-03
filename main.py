@@ -2,15 +2,16 @@ import dearpygui.dearpygui as dpg
 
 from Utils.Init import init
 from Windows.SelectWindow import selectWindow
+from Windows.EditWindow import saveCallback
 from Utils.Store import store
 from Utils.Theme import theme,fonts
-from Utils.FileHandler import save
 from Utils.i18n import i18n,I18N
 from Utils.Consts import ABOUT
 
 
 def updateLocale(sender,app_data,user_data):
     store.locale=user_data[0]
+    dpg.bind_font(user_data[1])
     for item in dpg.get_all_items():
         i18nKey=dpg.get_item_user_data(item)
         if i18nKey in I18N[store.locale]:
@@ -34,13 +35,13 @@ theme()
 
 dpg.create_viewport(title='Suzerain Save Editor',width=width,height=height)
 dpg.set_viewport_vsync(True)
-#  TODO add popup for about
+
 with dpg.viewport_menu_bar():
     with dpg.menu(label=i18n("File"),user_data="File"):
-        dpg.add_menu_item(label=i18n("Open Folder"),user_data="Open Folder")
-        dpg.add_menu_item(tag="save",label=i18n("Save"),user_data="Save",enabled=False,callback=save)
+        dpg.add_menu_item(tag="Open Folder",label=i18n("Open Folder"),user_data="Open Folder",callback=lambda:dpg.show_item("dirDialog"))
+        dpg.add_menu_item(tag="save",label=i18n("Save"),user_data="Save",enabled=False,callback=saveCallback)
     with dpg.menu(label=i18n("Settings"),user_data="Settings"):
-        dpg.add_checkbox(label=i18n("Auto Backup"),user_data="Auto Backup",callback=lambda sender,app_data,user_data:setattr(store,"autoBackup",app_data))
+        dpg.add_checkbox(label=i18n("Auto Backup"),user_data="Auto Backup",default_value=store.autoBackup,callback=lambda sender,app_data,user_data:setattr(store,"autoBackup",app_data))
         with dpg.menu(label=i18n("Language"),user_data="Language"):
             for i in I18N["locales"]:
                 locale=I18N["locales"][i]
@@ -57,7 +58,6 @@ with dpg.window(show=False):
                     dpg.add_text(i18n(k),user_data=k,tag=k)
                     dpg.add_text(v)
             dpg.add_button(label=i18n("Close"),user_data="Close",callback=lambda:dpg.configure_item("popupAbout",show=False))
-
 
 selectWindow(width,height)
 

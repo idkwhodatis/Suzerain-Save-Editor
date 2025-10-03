@@ -18,9 +18,6 @@ def dirDialogCallback(sender,app_data,user_data):
     dpg.set_value("saveDir",store.saveDir)
     dpg.configure_item("dirDialog",default_path=store.saveDir)
     getFiles(store.saveDir)
-
-    dpg.delete_item("tableSaveFiles",children_only=True)
-    dpg.delete_item("tableBackupFiles",children_only=True)
     buildTables()
 
 def editCallback(sender,app_data,user_data):
@@ -30,6 +27,7 @@ def editCallback(sender,app_data,user_data):
     dpg.configure_item("Select",show=False)
     dpg.set_primary_window("Edit",True)
     dpg.configure_item("save",enabled=True)
+    dpg.configure_item("Open Folder",enabled=False)
 
 def tabCallback(sender,app_data,user_data):
     store.tabSelect=dpg.get_item_alias(app_data)
@@ -41,8 +39,6 @@ def popupCallback(file,label):
     dpg.set_value("popupFile",value=file)
     dpg.set_value("popupLabel",value=i18n(label))
     getFiles(store.saveDir)
-    dpg.delete_item("tableSaveFiles",children_only=True)
-    dpg.delete_item("tableBackupFiles",children_only=True)
     buildTables()
 
 def backupCallback(sender,app_data,user_data):
@@ -62,6 +58,10 @@ def maxMoneyCallback(sender,app_data,user_data):
     popupCallback(sender[:-1],"Max Moneyed")
 
 def buildTables():
+    if dpg.does_item_exist("tableSaveFiles"):
+        dpg.delete_item("tableSaveFiles",children_only=True)
+    if dpg.does_item_exist("tableBackupFiles"):
+        dpg.delete_item("tableBackupFiles",children_only=True)
     dpg.add_table_column(init_width_or_weight=5,parent="tableSaveFiles")
     dpg.add_table_column(init_width_or_weight=0,parent="tableSaveFiles")
     dpg.add_table_column(init_width_or_weight=0,parent="tableSaveFiles")

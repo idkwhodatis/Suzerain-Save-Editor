@@ -6,12 +6,13 @@ import dearpygui.dearpygui as dpg
 from Utils.Store import store
 from Utils.Consts import STORY_PACK
 from Utils.Theme import fonts
-from Utils.Parser import parse
-from Utils.FileHandler import save
+from Utils.Parser import parse,apply
+from Utils.FileHandler import getFiles
+from Utils.Utils import atomicBackup
 from Utils.i18n import i18n
+from Utils.Theme import fonts
 
-
-footerOffset=175
+footerOffset=205
 
 def inputCallback(sender,app_data,user_data):
     setattr(getattr(store,user_data),sender,app_data)
@@ -28,13 +29,34 @@ def backCallback(sender,app_data,user_data):
     dpg.configure_item("Select",show=True)
     dpg.set_primary_window("Select",True)
     dpg.delete_item("Edit")
+    dpg.delete_item("popupSave")
     dpg.configure_item("save",enabled=False)
+    dpg.configure_item("Open Folder",enabled=True)
+
+def saveCallback(sender,app_data,user_data):
+    file=Path(store.saveDir)/store.currFile
+    if store.autoBackup:
+        atomicBackup(file)
+        getFiles(store.saveDir)
+        from Windows.SelectWindow import buildTables
+        buildTables()
+    apply(file)
+    dpg.show_item("popupSave")
 
 def editWindow(width,height):
     parse(str(Path(store.saveDir)/store.currFile))
 
     with dpg.window(tag="Edit",no_scrollbar=True,no_scroll_with_mouse=True):
         dpg.add_text(tag="currFile",default_value=store.currFile)
+        dpg.add_separator()
+        with dpg.group(horizontal=True):
+            dpg.add_text(store.metadata.campaignName)
+            dpg.add_spacer(width=4)
+            dpg.add_text(i18n("currentStoryPack"),user_data="currentStoryPack")
+            dpg.add_text(i18n(store.metadata.currentStoryPack),user_data=store.metadata.currentStoryPack)
+            dpg.add_spacer(width=4)
+            dpg.add_text(i18n("turnNo"),user_data="turnNo")
+            dpg.add_text(store.metadata.turnNo)
         dpg.add_separator()
 
         with dpg.menu_bar(show=False):
@@ -76,9 +98,17 @@ def editWindow(width,height):
 
         dpg.add_separator()
         with dpg.group(tag="footer",horizontal=True):
-            dpg.add_button(label=i18n("Save"),user_data="Save",callback=save)
+            dpg.add_button(label=i18n("Save"),user_data="Save",callback=saveCallback)
             dpg.add_spacer(width=1)
             dpg.add_button(label=i18n("Close"),user_data="Close",callback=backCallback)
+
+        dpg.add_button(tag="dummySave",show=False)
+        with dpg.popup("dummySave",modal=True,tag="popupSave"):
+            dpg.add_text(store.currFile)
+            dpg.add_text(i18n("Saved"),user_data="Saved")
+            dpg.add_button(label=i18n("Close"),user_data="Close",callback=lambda:dpg.configure_item("popupSave",show=False))
+
+    dpg.bind_item_font("Edit",fonts["font"+store.locale.upper()])
 
     if not dpg.does_item_exist("resizeHandler"):
         with dpg.item_handler_registry(tag="resizeHandler") as handler:
