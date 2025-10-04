@@ -64,5 +64,6 @@ STORY_PACK={
 
 ABOUT={
     "Author":"idkwhodatis",
-    "License":"MIT"
+    "License":"MIT",
+    "Version":"0.0.1"
 }

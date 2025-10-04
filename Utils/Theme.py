@@ -1,6 +1,7 @@
 import dearpygui.dearpygui as dpg
 
 from Utils.Store import store
+from Utils.Utils import assets
 
 
 fonts={}
@@ -49,11 +50,11 @@ def theme():
     dpg.bind_theme(theme)
 
     with dpg.font_registry():
-        with dpg.font("./Fonts/MaterialSymbolsOutlined-Regular.ttf",18) as fontICON:
+        with dpg.font(assets("Fonts","MaterialSymbolsOutlined-Regular.ttf"),18) as fontICON:
             dpg.add_font_chars([0xE2C8])
             dpg.add_font_chars([0xE5C4])
-        fontEN=dpg.add_font("./Fonts/NotoSans-Regular.ttf",18)
-        with dpg.font("./Fonts/NotoSansSC-Regular.ttf",18) as fontZH:
+        fontEN=dpg.add_font(assets("Fonts","NotoSans-Regular.ttf"),18)
+        with dpg.font(assets("Fonts","NotoSansSC-Regular.ttf"),18) as fontZH:
             dpg.add_font_range_hint(dpg.mvFontRangeHint_Chinese_Full)
 
         fonts["fontICON"]=fontICON

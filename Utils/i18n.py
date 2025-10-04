@@ -20,6 +20,7 @@ I18N={
         "Language":"Language",
         "Author":"Author: ",
         "License":"License: ",
+        "Version":"Version: ",
 
         "Confirm":"Confirm",
         "SaveDir":"Choose Save File Directory",
@@ -72,6 +73,7 @@ I18N={
         "Language":"语言",
         "Author":"作者: ",
         "License":"开源证书: ",
+        "Version":"版本: ",
 
         "Confirm":"确认",
         "SaveDir":"选择存档目录",

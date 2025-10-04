@@ -1,6 +1,7 @@
 import functools
 import json
 import os
+import sys
 from pathlib import Path
 import shutil
 import time
@@ -51,3 +52,10 @@ def atomicDelete(file):
     if type(file)==str:
         file=Path(file)
     file.unlink(missing_ok=True)
+
+def assets(*parts):
+    if getattr(sys,"frozen",False):
+        base=Path(sys.argv[0]).resolve().parent
+    else:
+        base=Path(__file__).resolve().parents[1]
+    return str(base.joinpath(*parts))
