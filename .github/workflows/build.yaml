@@ -1,0 +1,44 @@
+on:
+  workflow_dispatch: {}
+
+jobs:
+  PreBuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - id: getVersion
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          set -e
+          version=$(python3 -c "from Utils.Consts import ABOUT; print(ABOUT['Version'])")
+          echo "version=$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+    
+      - id: tag
+        run: |
+          set -e
+          git fetch --tags --quiet
+          TAG="v${{ steps.getVersion.outputs.version }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists; skipping."
+          else
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git tag "$TAG"
+            git push origin "$TAG"
+          fi
+      
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.getVersion.outputs.version }}
+          name: Release v${{ steps.getVersion.outputs.version }}
+          draft: false
+          prerelease: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
