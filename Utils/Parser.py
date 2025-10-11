@@ -13,7 +13,7 @@ from Models.Rizia import Rizia
 def parse(file):
     with open(file,"r",encoding="utf-8") as f:
         data=json.load(f)
-    metadata=Metadata(data["campaignName"],data["currentStoryPack"],data["turnNo"])
+    metadata=Metadata(data["campaignName"],data["currentStoryPack"],data["turnNo"],data["version"])
     store.metadata=metadata
 
     variables={}

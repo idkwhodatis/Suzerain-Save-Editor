@@ -6,3 +6,4 @@ class Metadata:
     campaignName:str
     currentStoryPack:str
     turnNo:int
+    gameVersion:str

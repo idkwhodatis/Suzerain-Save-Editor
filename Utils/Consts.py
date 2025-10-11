@@ -1,18 +1,101 @@
 FIELD_MAP_SORDLAND={
     "governmentBudget":"BaseGame.GovernmentBudget",
     "personalWealth":"BaseGame.PersonalWealth",
+
+    "_blackTuesday":"BaseGame.BlackTuesdayHappened",
+    "_marketsCrash":"BaseGame.Situation_Economy_MarketsCrash",
+
     "economy":"BaseGame.Economy",
+    "tradeAmount":"BaseGame.TradeAmount",
+    "economicReliance":"BaseGame.EconomicReliance",
+    "_superpowerTradeWar":"BaseGame.SuperpowerTradeWarHappened",
+    "_globalTradeWar":"BaseGame.Situation_Economy_GlobalTradeWar",
+    "economyAgnland":"BaseGame.Economy_Agnland",
+    "economyBergia":"BaseGame.Economy_Bergia",
+    "economyGruni":"BaseGame.Economy_Gruni",
+    "economyLorren":"BaseGame.Economy_Lorren",
+    "investmentAgnland":"BaseGame.Policy_Economy_RegionalInvestment_Agnland",
+    "investmentBergia":"BaseGame.Policy_Economy_RegionalInvestment_Bergia",
+    "investmentGruni":"BaseGame.Policy_Economy_RegionalInvestment_Gruni",
+    "investmentLorren":"BaseGame.Policy_Economy_RegionalInvestment_Lorren",
+    "_agnlandMajorFishExport":"BaseGame.Situation_Economy_Agnland_MajorFishExport",
+    "_agnlandEconomicStabilisation":"BaseGame.Situation_Economy_Agnland_EconomicStabilisation",
+    "_agnlandLackInvestment":"BaseGame.Situation_Economy_Agnland_LackInvestment",
+    "_bergiaMajorAgriculturalZone":"BaseGame.Situation_Economy_Bergia_MajorAgriculturalZone",
+    "_bergiaEconomicStabilisation":"BaseGame.Situation_Economy_Bergia_EconomicStabilisation",
+    "_bergiaEconomicDownturn":"BaseGame.Situation_Economy_Bergia_EconomicDownturn",
+    "_gruniLightTowerRegion":"BaseGame.Situation_Economy_Gruni_LightTowerRegion",
+    "_gruniLaggingBehind":"BaseGame.Situation_Economy_Gruni_LaggingBehind",
+    "_gruniMaintainingGrowth":"BaseGame.Situation_Economy_Gruni_MaintainingGrowth",
+    "_lorrenProductionAndTradeCenter":"BaseGame.Situation_Economy_Lorren_ProductionAndTradeCenter",
+    "_lorrenEconomicStabilisation":"BaseGame.Situation_Economy_Lorren_EconomicStabilisation",
+    "_lorrenRustBelt":"BaseGame.Situation_Economy_Lorren_RustBelt",
+    "_highEmployment":"BaseGame.Situation_Economy_HighEmployment",
+    "_unemploymentCrisis":"BaseGame.Situation_Economy_UnemploymentCrisis",
+    "_increasedTrade":"BaseGame.Situation_Economy_IncreasedTrade",
+    "_decreasedTrade":"BaseGame.Situation_Economy_DecreasedTrade",
+    "_taxEfficientEconomy":"BaseGame.Situation_Economy_TaxEfficientEconomy",
+    "_taxAvoidance":"BaseGame.Situation_Economy_TaxAvoidance",
+    "_taxEvasion":"BaseGame.Situation_Economy_TaxEvasion",
+    "_improvedTransportation":"BaseGame.Situation_Economy_ImprovedTransportation",
+    "_weakTransportation":"BaseGame.Situation_Economy_WeakTransportation",
+    "_tourismBooming":"BaseGame.Situation_Economy_Tourism_Booming",
+    "_tourismAverage":"BaseGame.Situation_Economy_Tourism_Average",
+    "_tourismDeclining":"BaseGame.Situation_Economy_Tourism_Declining",
+
+
     "publicOpinion":"BaseGame.Public_Opinion",
     "bludishOpinion":"BaseGame.Bludish_Opinion",
     "countryUnrest":"BaseGame.Country_Unrest",
     "lucianOpinion":"BaseGame.Relations_Lucian_Opinion",
     "monicaOpinion":"BaseGame.Relations_Monica_Opinion",
     "francOpinion":"BaseGame.Relations_Franc_Opinion",
-    "deanaLoved":"BaseGame.Relations_Deana_Loved",
-    "deanaOpinion":"BaseGame.Relations_Deana_Opinion",
-    "ewaldDiscontent":"BaseGame.Relations_Ewald_Discontent",
-    "ewaldNeutral":"BaseGame.Relations_Ewald_Neutral",
-    "ewaldFriendly":"BaseGame.Relations_Ewald_Friendly"
+    "_deanaLoved":"BaseGame.Relations_Deana_Loved",
+    "_deanaOpinion":"BaseGame.Relations_Deana_Opinion",
+    "_ewaldDiscontent":"BaseGame.Relations_Ewald_Discontent",
+    "_ewaldNeutral":"BaseGame.Relations_Ewald_Neutral",
+    "_ewaldFriendly":"BaseGame.Relations_Ewald_Friendly",
+
+    "reformAssemblyVote":"BaseGame.Reform_Assembly_Vote",
+    "reformAlbinConvinced":"BaseGame.Reform_Albin_Convinced",
+    "reformGloriaConvinced":"BaseGame.Reform_Gloria_Convinced",
+    "reformCourtVote":"BaseGame.Reform_Court_Vote",
+    "reformIsabelConvinced":"BaseGame.Reform_Reform_Isabel_Convinced",
+    "reformHeronConvinced":"BaseGame.Reform_Reform_Heron_Convinced",
+    "_partyElectionWon":"BaseGame.Turn10_PartyCongress_Won",
+    "_partyElectionLost":"BaseGame.Turn10_PartyCongress_Lost",
+    "_partyElectionNewParty":"BaseGame.Turn10_PartyCongress_FormNewParty",
+
+    "USPAgainstProposal":"BaseGame.Faction_USP_AgainstProposal",
+    "USPObstructionist":"BaseGame.Faction_USP_Obstructionist",
+    "NFPDestroyed":"BaseGame.Faction_NFP_Destroyed",
+    "PFJP_Destroyed":"BaseGame.Faction_PFJP_Destroyed",
+    "oldGuardContent":"BaseGame.Faction_OldGuard_Content",
+    "oldGuardDestroyed":"BaseGame.Faction_OldGuard_Destroyed",
+    "oligarchsAlly":"BaseGame.Faction_Oligarchs_Ally",
+    "oligarchsContent":"BaseGame.Faction_Oligarchs_Content",
+    "oligarchsDestroyed":"BaseGame.Faction_Oligarchs_Destroyed",
+    "oligarchsEnemy":"BaseGame.Faction_Oligarchs_Enemy",
+    "oligarchsKorontiLeader":"BaseGame.Faction_Oligarchs_KorontiLeader",
+    "reformistsContent":"BaseGame.Faction_Reformists_Content",
+
+    "amnestyForPoliticalPrisoners":"BaseGame.Reform_PresiPower_Default_AmnestyForPoliticalPrisoners",
+    "deSollinisation":"BaseGame.Reform_PresiPower_Default_DeSollinisation",
+    "fairTradeCommission":"BaseGame.Reform_PresiPower_Weak_FairTradeCommission",
+    "genderEqualityInEducation":"BaseGame.Reform_PresiPower_Default_GenderEqualityInEducation",
+    "privatePrisons":"BaseGame.Reform_PresiPower_Default_PrivatePrisons",
+    "ruralEducationInstitutes":"BaseGame.Reform_PresiPower_Default_RuralEducationInstitutes",
+    "capitalPunishment":"BaseGame.Reform_PresiPower_Strong_CapitalPunishment",
+    "gunRights":"BaseGame.Reform_PresiPower_Strong_GunRights",
+    "purgeGeneralStaff":"BaseGame.Reform_PresiPower_Strong_PurgeGeneralStaff",
+    "relocationToRural":"BaseGame.Reform_PresiPower_Strong_RelocationToRural",
+    "removeBankIndependence":"BaseGame.Reform_PresiPower_Strong_RemoveBankIndependence",
+    "removeReligiousSymbols":"BaseGame.Reform_PresiPower_Strong_RemoveReligiousSymbols",
+    "freeMedicine":"BaseGame.Reform_PresiPower_Weak_FreeMedicine",
+    "lowerRetirementAge":"BaseGame.Reform_PresiPower_Weak_LowerRetirementAge",
+    "_sordishRadioTVCouncil":"BaseGame.Reform_PresiPower_Weak_SordishRadioTVCouncil",
+    "_sordishRadioTVCouncilControlled":"BaseGame.Reform_PresiPower_Weak_SordishRadioTVCouncil_Controlled",
+    "_sordishRadioTVCouncilIndependent":"BaseGame.Reform_PresiPower_Weak_SordishRadioTVCouncil_Independent",
 }
 
 GROUP_SORDLAND={
@@ -20,8 +103,31 @@ GROUP_SORDLAND={
         "governmentBudget",
         "personalWealth",
     ],
+    "Anti Cheat":[
+        "blackTuesday",
+    ],
     "Economy":[
-        "economy"
+        "economy",
+        "tradeAmount",
+        "economicReliance",
+        "superpowerTradeWar",
+        "employment",
+        "trade",
+        "tax",
+        "transportation",
+        "tourism",
+        "economyAgnland",
+        "economyBergia",
+        "economyGruni",
+        "economyLorren",
+        "investmentAgnland",
+        "investmentBergia",
+        "investmentGruni",
+        "investmentLorren",
+        "situationAgnland",
+        "situationBergia",
+        "situationGruni",
+        "situationLorren",
     ],
     "Opinion":[
         "publicOpinion",
@@ -31,24 +137,66 @@ GROUP_SORDLAND={
         "monicaOpinion",
         "francOpinion",
         "deanaLoved",
-        "deanaOpinion",
-        "ewaldOpinion"
-    ]
+        "ewaldOpinion",
+    ],
+    "Assembly/Court":[
+        "reformAssemblyVote",
+        "reformAlbinConvinced",
+        "reformGloriaConvinced",
+        "reformCourtVote",
+        "reformIsabelConvinced",
+        "reformHeronConvinced",
+        "partyElectionResult",
+    ],
+    "Factions":[
+        "USPAgainstProposal",
+        "USPObstructionist",
+        "NFPDestroyed",
+        "PFJP_Destroyed",
+        "oldGuardContent",
+        "oldGuardDestroyed",
+        "oligarchsAlly",
+        "oligarchsContent",
+        "oligarchsDestroyed",
+        "oligarchsEnemy",
+        "oligarchsKorontiLeader",
+        "reformistsContent",
+    ],
+    "Presidential Decrees":[
+        "amnestyForPoliticalPrisoners",
+        "deSollinisation",
+        "fairTradeCommission",
+        "genderEqualityInEducation",
+        "privatePrisons",
+        "ruralEducationInstitutes",
+        "capitalPunishment",
+        "gunRights",
+        "purgeGeneralStaff",
+        "relocationToRural",
+        "removeBankIndependence",
+        "removeReligiousSymbols",
+        "freeMedicine",
+        "lowerRetirementAge",
+        "sordishRadioTVCouncilStatus",
+    ],
 }
 
 
 FIELD_MAP_RIZIA={
     "resourcesBudget":"RiziaDLC.Resources_Budget",
     "resourcesAuthority":"RiziaDLC.Resources_Authority",
-    "resourcesEnergy":"RiziaDLC.Resources_Energy"
+    "resourcesEnergy":"RiziaDLC.Resources_Energy",
 }
 
 GROUP_RIZIA={
     "Money":[
         "resourcesBudget",
         "resourcesAuthority",
-        "resourcesEnergy"
-    ]
+        "resourcesEnergy",
+    ],
+    "Anti Cheat":[
+        
+    ],
 }
 
 STORY_PACK={
@@ -65,5 +213,5 @@ STORY_PACK={
 ABOUT={
     "Author":"idkwhodatis",
     "License":"MIT",
-    "Version":"0.0.1"
+    "Version":"0.1.0"
 }

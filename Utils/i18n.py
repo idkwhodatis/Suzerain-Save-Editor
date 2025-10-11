@@ -2,7 +2,11 @@ from Utils.Store import store
 
 
 def i18n(key):
-    return I18N.get(store.locale,{}).get(key,"")
+    return (
+        I18N.get(store.locale,{}).get(key) or
+        I18N.get("en",{}).get(key) or
+        ""
+    )
 
 
 I18N={
@@ -11,6 +15,7 @@ I18N={
         "简体中文":"zh"
     },
     "en":{
+        # Menu Bar
         "File":"File",
         "Settings":"Settings",
         "About":"About",
@@ -22,6 +27,7 @@ I18N={
         "License":"License: ",
         "Version":"Version: ",
 
+        # Buttons
         "Confirm":"Confirm",
         "SaveDir":"Choose Save File Directory",
         "Save Files":"Save Files",
@@ -32,23 +38,57 @@ I18N={
         "Delete":"Delete",
         "Close":"Close",
 
+        # Pop Up
         "Backed Up":"Backed Up",
         "Restored":"Restored",
         "Deleted":"Deleted",
         "Max Moneyed":"Money Maximized",
         "Saved":"Saved",
 
+        # Metadata
         "currentStoryPack":"Current StoryPack: ",
         "StoryPack_Main":"Sordland",
         "StoryPack_Rizia":"Rizia",
         "turnNo":"Turn: ",
+        "gameVersion":"Game Version: ",
+
+        # Group
         "Money":"Money",
+        "Anti Cheat":"Anti Cheat",
         "Economy":"Economy",
         "Opinion":"Opinion",
-    
+        "Assembly/Court":"Assembly/Court",
+        "Factions":"Factions",
+        "Presidential Decrees":"Presidential Decrees",
+
+        # Sordland
         "governmentBudget":"Government Budget",
         "personalWealth":"Personal Wealth",
+
+        "blackTuesday":"Black Tuesday Happened",
+
         "economy":"Economy",
+        "tradeAmount":"Trade Amount",
+        "economicReliance":"Economic Reliance",
+        "superpowerTradeWar":"Superpower Trade War",
+        "employment":"Employment",
+        "trade":"Trade",
+        "tax":"Tax",
+        "transportation":"Transportation",
+        "tourism":"Tourism",
+        "economyAgnland":"Economy in Agnland",
+        "economyBergia":"Economy in Bergia",
+        "economyGruni":"Economy in Gruni",
+        "economyLorren":"Economy in Lorren",
+        "investmentAgnland":"Investment in Agnland",
+        "investmentBergia":"Investment in Bergia",
+        "investmentGruni":"Investment in Gruni",
+        "investmentLorren":"Investment in Lorren",
+        "situationAgnland":"Situation in Agnland",
+        "situationBergia":"Situation in Bergia",
+        "situationGruni":"Situation in Gruni",
+        "situationLorren":"Situation in Lorren",
+
         "publicOpinion":"Public Opinion",
         "bludishOpinion":"Bludish Opinion",
         "countryUnrest":"Country Unrest",
@@ -56,14 +96,84 @@ I18N={
         "monicaOpinion":"Monica Opinion",
         "francOpinion":"Franc Opinion",
         "deanaLoved":"Deana Loved",
-        "deanaOpinion":"Deana Opinion",
         "ewaldOpinion":"Ewald Opinion",
 
+        "reformAssemblyVote":"Reform - Assembly Vote",
+        "reformAlbinConvinced":"Reform - Albin Convinced",
+        "reformGloriaConvinced":"Reform - Gloria Convinced",
+        "reformCourtVote":"Reform - Court Vote",
+        "reformIsabelConvinced":"Reform - Isabel Convinced",
+        "reformHeronConvinced":"Reform - Heron Convinced",
+        "partyElectionResult":"Party Election Result",
+
+        "USPAgainstProposal":"USP Against Proposal",
+        "USPObstructionist":"USP Obstructionist",
+        "NFPDestroyed":"NFP Destroyed",
+        "PFJP_Destroyed":"PFJP Destroyed",
+        "oldGuardContent":"OldGuard Content",
+        "oldGuardDestroyed":"OldGuard Destroyed",
+        "oligarchsAlly":"Oligarchs Ally",
+        "oligarchsContent":"Oligarchs Content",
+        "oligarchsDestroyed":"Oligarchs Destroyed",
+        "oligarchsEnemy":"Oligarchs Enemy",
+        "oligarchsKorontiLeader":"Koronti Leads Oligarchs",
+        "reformistsContent":"Reformists Content",
+
+        "amnestyForPoliticalPrisoners":"Amnesty For Political Prisoners",
+        "deSollinisation":"DeSollinisation",
+        "fairTradeCommission":"Fair Trade Commission",
+        "genderEqualityInEducation":"Gender Equality In Education",
+        "privatePrisons":"Private Prisons",
+        "ruralEducationInstitutes":"Rural Education Institutes",
+        "capitalPunishment":"Capital Punishment",
+        "gunRights":"Gun Rights",
+        "purgeGeneralStaff":"Purge General Staff",
+        "relocationToRural":"Relocation To Rural",
+        "removeBankIndependence":"Remove Bank Independence",
+        "removeReligiousSymbols":"Remove Religious Symbols",
+        "freeMedicine":"Free Medicine",
+        "lowerRetirementAge":"Lower Retirement Age",
+        "sordishRadioTVCouncilStatus":"Sordish Radio TV Council Status",
+
+        "High Employment":"High Employment",
+        "Unemployment Crisis":"Unemployment Crisis",
+        "Increased Trade":"Increased Trade",
+        "Decreased Trade":"Decreased Trade",
+        "Tax Efficient":"Tax Efficient",
+        "Tax Avoidance":"Tax Avoidance",
+        "Tax Evasion":"Tax Evasion",
+        "Improved Transportation":"Improved Transportation",
+        "Weak Transportation":"Weak Transportation",
+        "Tourism Booming":"Tourism Booming",
+        "Tourism Average":"Tourism Average",
+        "Tourism Declining":"Tourism Declining",
+        "Major Fish Export":"Major Fish Export",
+        "Economic Stabilisation":"Economic Stabilisation",
+        "Lack Investment":"Lack Investment",
+        "Major Agricultural Zone":"Major Agricultural Zone",
+        "Economic Downturn":"Economic Downturn",
+        "Light Tower Region":"Light Tower Region",
+        "Maintaining Growth":"Maintaining Growth",
+        "Lagging Behind":"Lagging Behind",
+        "Production and Trade Center":"Production and Trade Center",
+        "Rust Belt":"Rust Belt",
+        "Discontent":"Discontent",
+        "Neutral":"Neutral",
+        "Friendly":"Friendly",
+        "None":"None",
+        "Won":"Won",
+        "Lost":"Lost",
+        "New Party":"New Party",
+        "Controlled":"Controlled",
+        "Independent":"Independent",
+
+        # Rizia
         "resourcesBudget":"Government Budget",
         "resourcesAuthority":"Government Authority",
         "resourcesEnergy":"Government Energy"
     },
     "zh":{
+        # Menu Bar
         "File":"文件",
         "Settings":"设置",
         "About":"关于",
@@ -75,6 +185,7 @@ I18N={
         "License":"开源证书: ",
         "Version":"版本: ",
 
+        # Buttons
         "Confirm":"确认",
         "SaveDir":"选择存档目录",
         "Save Files":"存档文件",
@@ -85,23 +196,56 @@ I18N={
         "Delete":"删除",
         "Close":"关闭",
 
+        # Pop Up
         "Backed Up":"已备份",
         "Restored":"已恢复",
         "Deleted":"已删除",
         "Max Moneyed":"已最大金钱",
         "Saved":"已保存",
 
+        # Metadata
         "currentStoryPack":"当前剧情包: ",
         "StoryPack_Main":"Sordland",
         "StoryPack_Rizia":"Rizia",
         "turnNo":"回合: ",
+        "gameVersion":"游戏版本: ",
+
+        # Group
         "Money":"财政",
         "Economy":"经济",
         "Opinion":"民意/好感",
+        "Assembly/Court":"议会/法院",
+        "Factions":"派系",
+        "Presidential Decrees":"总统令",
 
+        # Sordland
         "governmentBudget":"政府预算",
         "personalWealth":"私人财富",
+
+        "blackTuesday":"黑色星期二已发生",
+
         "economy":"经济",
+        "tradeAmount":"贸易额",
+        "economicReliance":"经济依赖",
+        "superpowerTradeWar":"超级大国贸易战",
+        "employment":"就业",
+        "trade":"贸易",
+        "tax":"税收",
+        "transportation":"交通",
+        "tourism":"旅游业",
+        "economyAgnland":"Agnland经济",
+        "economyBergia":"Bergia经济",
+        "economyGruni":"Gruni经济",
+        "economyLorren":"Lorren经济",
+        "investmentAgnland":"投资Agnland",
+        "investmentBergia":"投资Bergia",
+        "investmentGruni":"投资Gruni",
+        "investmentLorren":"投资Lorren",
+        "situationAgnland":"Agnland情况",
+        "situationBergia":"Bergia情况",
+        "situationGruni":"Gruni情况",
+        "situationLorren":"Lorren情况",
+
         "publicOpinion":"民意",
         "bludishOpinion":"Bludish民意",
         "countryUnrest":"国家动乱",
@@ -109,10 +253,79 @@ I18N={
         "monicaOpinion":"Monica好感",
         "francOpinion":"Franc好感",
         "deanaLoved":"Deana喜爱",
-        "deanaOpinion":"Deana好感",
         "ewaldOpinion":"Ewald好感",
 
+        "reformAssemblyVote":"改革 - 议会投票",
+        "reformAlbinConvinced":"改革 - Albin被说服",
+        "reformGloriaConvinced":"改革 - Gloria被说服",
+        "reformCourtVote":"改革 - 法院投票",
+        "reformIsabelConvinced":"改革 - Isabel被说服",
+        "reformHeronConvinced":"改革 - Heron被说服",
+        "partyElectionResult":"党内选举结果",
 
+        "USPAgainstProposal":"USP反对提案",
+        "USPObstructionist":"USP阻挠者",
+        "NFPDestroyed":"NFP被瓦解",
+        "PFJP_Destroyed":"PFJP被瓦解",
+        "oldGuardContent":"OldGuard满意",
+        "oldGuardDestroyed":"OldGuard被瓦解",
+        "oligarchsAlly":"寡头盟友",
+        "oligarchsContent":"寡头满意",
+        "oligarchsDestroyed":"寡头被瓦解",
+        "oligarchsEnemy":"寡头敌对",
+        "oligarchsKorontiLeader":"Koronti代表寡头",
+        "reformistsContent":"改革派满意",
+
+        "amnestyForPoliticalPrisoners":"大赦政治犯",
+        "deSollinisation":"去Soll化",
+        "fairTradeCommission":"公平交易委员会",
+        "genderEqualityInEducation":"教育中的性别平等",
+        "privatePrisons":"私有化监狱",
+        "ruralEducationInstitutes":"偏远地区教育机构",
+        "capitalPunishment":"死刑",
+        "gunRights":"持枪权",
+        "purgeGeneralStaff":"清洗总参谋部",
+        "relocationToRural":"搬迁至偏远地区",
+        "removeBankIndependence":"取消银行独立性",
+        "removeReligiousSymbols":"取缔宗教符号",
+        "freeMedicine":"免费药物",
+        "lowerRetirementAge":"降低退休年龄",
+        "sordishRadioTVCouncilStatus":"Sordish广播电视委员会状况",
+
+        "High Employment":"高就业率",
+        "Unemployment Crisis":"失业危机",
+        "Increased Trade":"贸易额增长",
+        "Decreased Trade":"贸易额减少",
+        "Tax Efficient":"高税收效率",
+        "Tax Avoidance":"广泛避税",
+        "Tax Evasion":"广泛逃税",
+        "Improved Transportation":"交通已改善",
+        "Weak Transportation":"交通不发达",
+        "Tourism Booming":"旅游业爆发",
+        "Tourism Average":"旅游业平均水平",
+        "Tourism Declining":"旅游业下降",
+        "Major Fish Export":"主要鱼类出口地",
+        "Economic Stabilisation":"经济稳定",
+        "Lack Investment":"缺少投资",
+        "Major Agricultural Zone":"主要农业产区",
+        "Economic Downturn":"经济下行",
+        "Light Tower Region":"灯塔区域",
+        "Maintaining Growth":"保持增长",
+        "Lagging Behind":"停滞不前",
+        "Production and Trade Center":"生产与贸易中心",
+        "Rust Belt":"铁锈带",
+        "Discontent":"不满",
+        "Neutral":"中立",
+        "Friendly":"友好",
+        "None":"无",
+        "Won":"胜选",
+        "Lost":"败选",
+        "New Party":"成立新党",
+        "Controlled":"被控制",
+        "Independent":"独立",
+
+
+        # Rizia
         "resourcesBudget":"政府预算",
         "resourcesAuthority":"政府权威",
         "resourcesEnergy":"政府能源"

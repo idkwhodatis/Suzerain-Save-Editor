@@ -17,6 +17,11 @@ footerOffset=205
 def inputCallback(sender,app_data,user_data):
     setattr(getattr(store,user_data),sender,app_data)
 
+def inputEnumCallback(sender,app_data,user_data):
+    inputCallback(sender,app_data,user_data)
+    dpg.set_value("label"+sender,i18n(app_data))
+    dpg.configure_item("label"+sender,user_data=app_data)
+
 def tabCallback(sender,app_data,user_data):
     store.tab=dpg.get_item_alias(app_data)
     for sp in STORY_PACK:
@@ -57,6 +62,9 @@ def editWindow(width,height):
             dpg.add_spacer(width=4)
             dpg.add_text(i18n("turnNo"),user_data="turnNo")
             dpg.add_text(store.metadata.turnNo)
+            dpg.add_spacer(width=4)
+            dpg.add_text(i18n("gameVersion"),user_data="gameVersion")
+            dpg.add_text(store.metadata.gameVersion)
         dpg.add_separator()
 
         with dpg.menu_bar(show=False):
@@ -94,7 +102,10 @@ def editWindow(width,height):
                                 elif isinstance(curr,Enum):
                                     with dpg.group(horizontal=True):
                                         dpg.add_text(i18n(i),user_data=i)
-                                        dpg.add_combo(items=[e.value for e in type(curr)],default_value=curr.value,**kwargs)
+                                        kwargs["callback"]=inputEnumCallback
+                                        combo=dpg.add_combo(items=[e.value for e in type(curr)],default_value=curr.value,**kwargs)
+                                        with dpg.tooltip(combo):
+                                            dpg.add_text(i18n(curr.value),user_data=curr.value,tag="label"+i)
 
         dpg.add_separator()
         with dpg.group(tag="footer",horizontal=True):
