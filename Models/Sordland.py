@@ -61,6 +61,8 @@ class Sordland:
     _ewaldFriendly:bool
 
     reformAssemblyVote:int
+    reformAllianceNFP:bool
+    reformAlliancePFJP:bool
     reformAlbinConvinced:bool
     reformGloriaConvinced:bool
     reformCourtVote:int
@@ -101,6 +103,73 @@ class Sordland:
     _sordishRadioTVCouncilControlled:bool
     _sordishRadioTVCouncilIndependent:bool
 
+    highwayProject:bool
+    railwayProject:bool
+    industrialExpansionAgricultural:bool
+    industrialExpansionAutomotive:bool
+    industrialExpansionElectronics:bool
+    industrialExpansionMilitary:bool
+    industrialZone:bool
+    airportProject:bool
+    agriculturalZone:bool
+    portProject:bool
+    
+    _agnoliaTradeDeal:bool
+    _agnoliaTrade:bool
+    _agnoliaAlliance:bool
+    _policyAgnoliaAlliance:bool
+    _wehlenTradeDeal:bool
+    _wehlenTrade:bool
+    _wehlenDefendBorder:bool
+    _wehlenJointOperation:bool
+    wehlenJoinedWar:bool
+    lespiaTradeDeal:bool
+    _lespiaAlliance:bool
+    _policyLespiaAlliance:bool
+    valgslandTradeDeal:bool
+    _valgslandAlliance:bool
+    _policyValgslandAlliance:bool
+    _ATO:bool
+    _ATOArea:bool
+    _CSP:bool
+    _CSPArea:bool
+
+    _courtBacklog:bool
+    _efficientJusticeSystem:bool
+    _limitedWomenRights:bool
+    _averageWomenRights:bool
+    _excellentWomenRights:bool
+    _corruption:bool
+    _corruptionTackled:bool
+    _organisedCrime:bool
+    _organisedCrimeContained:bool
+
+    _modernisedArmy:bool
+    _modernisationArmy:bool
+    _expandedArmy:bool
+    _expansionArmy:bool
+    _modernisedNavy:bool
+    _modernisationNavy:bool
+    _expandedNavy:bool
+    _expansionNavy:bool
+    _modernisedAirForce:bool
+    _modernisationAirForce:bool
+    _expandedAirForce:bool
+    _expansionAirForce:bool
+
+    FPnTMentionedKA74:bool
+    FPnTMentionedNukes:bool
+    televisionInterviewInternationalFavor:int
+    FPnTRumburgIsolated:bool
+    SnOPhase1Success:bool
+    SnOPhase2Success:bool
+    rumburgWarPerformance:int
+    _vesordRumburgNavyInferior:bool
+    _vesordRumburgNavySuperior:bool
+    _SnORumburgWarLost:bool
+    _SnORumburgWarWin:bool
+
+
     @property
     def blackTuesday(self):
         return self._blackTuesday or self._marketsCrash
@@ -121,6 +190,113 @@ class Sordland:
     @deanaLoved.setter
     def deanaLoved(self,val):
         self._deanaLoved=self._deanaOpinion=val
+
+    @property
+    def agnoliaTradeDeal(self):
+        return self._agnoliaTradeDeal and self._agnoliaTrade
+    @agnoliaTradeDeal.setter
+    def agnoliaTradeDeal(self,val):
+        self._agnoliaTradeDeal=self._agnoliaTrade=val
+
+    @property
+    def agnoliaAlliance(self):
+        return self._agnoliaAlliance and self._policyAgnoliaAlliance
+    @agnoliaAlliance.setter
+    def agnoliaAlliance(self,val):
+        self._agnoliaAlliance=self._policyAgnoliaAlliance=val
+
+    @property
+    def wehlenTradeDeal(self):
+        return self._wehlenTradeDeal and self._wehlenTrade
+    @wehlenTradeDeal.setter
+    def wehlenTradeDeal(self,val):
+        self._wehlenTradeDeal=self._wehlenTrade=val
+
+    @property
+    def wehlenAlliance(self):
+        return self._wehlenAlliance and self._policywehlenAlliance
+    @wehlenAlliance.setter
+    def wehlenAlliance(self,val):
+        self._wehlenAlliance=self._policywehlenAlliance=val
+
+    @property
+    def lespiaAlliance(self):
+        return self._lespiaAlliance and self._policyLespiaAlliance
+    @lespiaAlliance.setter
+    def lespiaAlliance(self,val):
+        self._lespiaAlliance=self._policyLespiaAlliance=val
+
+    @property
+    def valgslandAlliance(self):
+        return self._valgslandAlliance and self._policyValgslandAlliance
+    @valgslandAlliance.setter
+    def valgslandAlliance(self,val):
+        self._valgslandAlliance=self._policyValgslandAlliance=val
+
+    @property
+    def ATO(self):
+        return self._ATO and self._ATOArea
+    @ATO.setter
+    def ATO(self,val):
+        self._ATO=self._ATOArea=val
+
+    @property
+    def CSP(self):
+        return self._CSP and self._CSPArea
+    @CSP.setter
+    def CSP(self,val):
+        self._CSP=self._CSPArea=val
+
+    @property
+    def modernisedArmy(self):
+        return self._modernisedArmy and self._modernisationArmy
+    @modernisedArmy.setter
+    def modernisedArmy(self,val):
+        self._modernisedArmy=self._modernisationArmy=val
+
+    @property
+    def expandedArmy(self):
+        return self._expandedArmy and self._expansionArmy
+    @expandedArmy.setter
+    def expandedArmy(self,val):
+        self._expandedArmy=self._expansionArmy=val
+
+    @property
+    def modernisedNavy(self):
+        return self._modernisedNavy and self._modernisationNavy
+    @modernisedNavy.setter
+    def modernisedNavy(self,val):
+        self._modernisedNavy=self._modernisationNavy=val
+
+    @property
+    def expandedNavy(self):
+        return self._expandedNavy and self._expansionNavy
+    @expandedNavy.setter
+    def expandedNavy(self,val):
+        self._expandedNavy=self._expansionNavy=val
+
+    @property
+    def modernisedAirForce(self):
+        return self._modernisedAirForce and self._modernisationAirForce
+    @modernisedAirForce.setter
+    def modernisedAirForce(self,val):
+        self._modernisedAirForce=self._modernisationAirForce=val
+
+    @property
+    def expandedAirForce(self):
+        return self._expandedAirForce and self._expansionAirForce
+    @expandedAirForce.setter
+    def expandedAirForce(self,val):
+        self._expandedAirForce=self._expansionAirForce=val
+
+    @property
+    def rumburgWarWin(self):
+        return self._SnORumburgWarWin and not self._SnORumburgWarLost
+    @rumburgWarWin.setter
+    def rumburgWarWin(self,val):
+        self._SnORumburgWarWin=val
+        self._SnORumburgWarLost=not val
+
 
     @property
     def employment(self):
@@ -366,6 +542,113 @@ class Sordland:
             case SordishRadioTVCouncilStatus.INDEPENDENT:
                 self._sordishRadioTVCouncil=self._sordishRadioTVCouncilIndependent=True
 
+    @property
+    def operationBearTrap(self):
+        if self._wehlenDefendBorder:
+            return OperationBearTrap.MID
+        elif self._wehlenJointOperation:
+            return OperationBearTrap.HIGH
+        else:
+            return OperationBearTrap.NONE
+    @operationBearTrap.setter
+    def operationBearTrap(self,val):
+        self._wehlenDefendBorder=self._wehlenJointOperation=False
+        if type(val)==str:
+            val=OperationBearTrap(val)
+        match val:
+            case OperationBearTrap.MID:
+                self._wehlenDefendBorder=True
+            case OperationBearTrap.HIGH:
+                self._wehlenJointOperation=True
+
+    @property
+    def courtStatus(self):
+        if self._courtBacklog:
+            return CourtStatus.BAD
+        elif self._efficientJusticeSystem:
+            return CourtStatus.GOOD
+    @courtStatus.setter
+    def courtStatus(self,val):
+        self._courtBacklog=self._efficientJusticeSystem=False
+        if type(val)==str:
+            val=CourtStatus(val)
+        match val:
+            case CourtStatus.BAD:
+                self._courtBacklog=True
+            case CourtStatus.GOOD:
+                self._efficientJusticeSystem=True
+
+    @property
+    def womenRights(self):
+        if self._limitedWomenRights:
+            return WomenRights.BAD
+        elif self._averageWomenRights:
+            return WomenRights.MID
+        elif self._excellentWomenRights:
+            return WomenRights.GOOD
+    @womenRights.setter
+    def womenRights(self,val):
+        self._limitedWomenRights=self._averageWomenRights=self._excellentWomenRights=False
+        if type(val)==str:
+            val=WomenRights(val)
+        match val:
+            case WomenRights.BAD:
+                self._limitedWomenRights=True
+            case WomenRights.MID:
+                self._averageWomenRights=True
+            case WomenRights.GOOD:
+                self._excellentWomenRights=True
+
+    @property
+    def corruption(self):
+        if self._corruption:
+            return Corruption.BAD
+        elif self._corruptionTackled:
+            return Corruption.GOOD
+    @corruption.setter
+    def corruption(self,val):
+        self._corruption=self._corruptionTackled=False
+        if type(val)==str:
+            val=Corruption(val)
+        match val:
+            case Corruption.BAD:
+                self._corruption=True
+            case Corruption.GOOD:
+                self._corruptionTackled=True
+
+    @property
+    def crime(self):
+        if self._organisedCrime:
+            return Crime.BAD
+        elif self._organisedCrimeContained:
+            return Crime.GOOD
+    @crime.setter
+    def crime(self,val):
+        self._organisedCrime=self._organisedCrimeContained=False
+        if type(val)==str:
+            val=Crime(val)
+        match val:
+            case Crime.BAD:
+                self._organisedCrime=True
+            case Crime.GOOD:
+                self._organisedCrimeContained=True
+
+    @property
+    def vesordRumbergNavy(self):
+        if self._vesordRumburgNavyInferior:
+            return VesordRumbergNavy.BAD
+        elif self._vesordRumburgNavySuperior:
+            return VesordRumbergNavy.GOOD
+    @vesordRumbergNavy.setter
+    def vesordRumbergNavy(self,val):
+        self._vesordRumburgNavyInferior=self._vesordRumburgNavySuperior=False
+        if type(val)==str:
+            val=VesordRumbergNavy(val)
+        match val:
+            case VesordRumbergNavy.BAD:
+                self._vesordRumburgNavyInferior=True
+            case VesordRumbergNavy.GOOD:
+                self._vesordRumburgNavySuperior=True
 
 class Employment(Enum):
     GOOD="High Employment"
@@ -425,3 +708,29 @@ class SordishRadioTVCouncilStatus(Enum):
     CONTROLLED="Controlled"
     INDEPENDENT="Independent"
     NONE="None"
+
+class OperationBearTrap(Enum):
+    MID="Defend Border"
+    HIGH="Joint Operation"
+    NONE="None"
+
+class CourtStatus(Enum):
+    BAD="Court Backlog"
+    GOOD="Efficient Justice System"
+
+class WomenRights(Enum):
+    BAD="Limited Women Rights"
+    MID="Average Women Rights"
+    GOOD="Excellent Women Rights"
+
+class Corruption(Enum):
+    BAD="Corruption"
+    GOOD="Corruption Tackled"
+
+class Crime(Enum):
+    BAD="Organised Crime"
+    GOOD="Organised Crime Contained"
+
+class VesordRumbergNavy(Enum):
+    BAD="Inferior"
+    GOOD="Superior"
